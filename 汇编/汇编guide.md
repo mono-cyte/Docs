@@ -101,28 +101,20 @@ SI, DI, BP, SP
 ### 指令
 
 - MOV 赋值
-
 - ADD
 - SUB
-- MUL
-- DIV
-- AND
-- OR
-- XOR
-- NOT
-- SHL
-- SHR
-- ROL
-- ROR
-- INC
-- DEC
-- CALL
-- RET
-- INT
-- JMP
-- LOOP
+
 - PUSH
 - POP
+
+- JMP
+- LOOP
+
+- INC
+- INT
+
+- DW (define word)
+
 
 ### 标志位
 
