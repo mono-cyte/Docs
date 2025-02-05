@@ -53,7 +53,11 @@
 > > L (Low), H (High)
 
 - BX
+
 - CX
+
+> loop 指令会将 CX 减 1，如果结果不为 0，则跳转到指定的标签处继续执行
+
 - DX
 
 SI, DI, BP, SP
@@ -114,6 +118,10 @@ SI, DI, BP, SP
 - INT
 
 - DW (define word)
+
+- AND
+- OR
+- XOR
 
 
 ### 标志位
