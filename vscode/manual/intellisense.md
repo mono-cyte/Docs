@@ -1,16 +1,18 @@
 # 智能感知
 
-
 ## 利用compile_commands.json规则文件
 
-#### Makefile
+### Makefile
+
 1. Makefile生成compile_commands.json需要特定程序bear
+
 ```bash
 sudo apt install bear
 ````
-2. 利用bear生成
 
-```
+1. 利用bear生成
+
+```bash
 # 使用bear生成compile_commands.json的命令
 # 用法: bear <命令> [--output <参数>] [--verbose] -- ...
 
@@ -42,18 +44,22 @@ sudo apt install bear
 ```bash
 bear -- <your-build-command>
 ```
+
 例如：
+
 ```bash
 bear -- make
 ```
+
 注意: 如果对应命令未从头执行, 则生成的compile_commands.json文件可能不完整, 例如`make: “...”已是最新。`的情况
 
 推荐命令:
+
 ```bash
 bear  --output .vscode/compile_commands.json -- make
 ```
 
-#### CMake
+### CMake
 
 ```cmake
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
@@ -62,6 +68,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 ```bash
 cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ${DIR}
 ```
+
 DIR为生成compile_commands.json文件的目录
 
 #### XMake
