@@ -312,3 +312,7 @@
     ]
 }
 ```
+
+---
+
+使用llvm-mingw时, 最优方案是: 安装lldb-dap扩展, 且设置 `type: lldb-dap`

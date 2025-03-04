@@ -13,13 +13,13 @@ When an instruction returns data to a destination operand, it can be returned to
 - A memory location.
 - An I/O port.
 
-##  Immediate Operands
+## Immediate Operands
 
 Some instructions use data encoded in the instruction itself as a source operand. These operands are called imme-diate operands (or simply immediates). For example, the following ADD instruction adds an immediate value of 14 to the contents of the EAX register:
 
 ADD EAX, 14
 
-All arithmetic instructions (except the DIV and IDIV instructions) allow the source operand to be an immediate value. The maximum value allowed for an immediate operand varies among instructions, but can never be greater than the maximum value of an unsigned doubleword integer (232).
+All arithmetic instructions (except the DIV and IDIV instructions) allow the source operand to be an immediate value. The maximum value allowed for an immediate operand varies among instructions, but can never be greater than the maximum value of an unsigned doubleword integer (2<sup>32</sup>).
 
 ## Register Operands
 
@@ -73,7 +73,7 @@ In 64-bit mode, a memory operand can be referenced by a segment selector and an 
 
 ## Specifying a Segment Selector
 
-The segment selector can be specified either implicitly or explicitly. The most common method of specifying a segment selector is to load it in a segment register and then allow the processor to select the register implicitly, depending on the type of operation being performed. The processor automatically chooses a segment according to the rules given in Table 3-5. 
+The segment selector can be specified either implicitly or explicitly. The most common method of specifying a segment selector is to load it in a segment register and then allow the processor to select the register implicitly, depending on the type of operation being performed. The processor automatically chooses a segment according to the rules given in Table 3-5.
 
 When storing data in memory or loading data from memory, the DS segment default can be overridden to allow other segments to be accessed. Within an assembler, the segment override is generally handled with a colon “:” operator. For example, the following MOV instruction moves a value from register EAX into the segment pointed to by the ES register. The offset into the segment is contained in the EBX register:
 

@@ -1,25 +1,25 @@
-# Numeric Data Types
+# 4.2 Numeric Data Types
 
-Although bytes, words, and doublewords are fundamental data types, some instructions support additional inter-pretations of these data types to allow operations to be performed on numeric data types (signed and unsigned integers, and floating-point numbers). Single precision (32-bit) floating-point and double precision (64-bit) floating-point data types are supported across all generations of Intel SSE extensions and Intel AVX extensions. The half precision (16-bit) floating-point data type was supported only with F16C extensions (VCVTPH2PS and VCVTPS2PH) beginning with the third generation of Intel® Core™ processors based on Ivy Bridge microarchitec-ture. Starting with the 4th generation Intel® Xeon® Scalable Processor Family, an Intel® AVX-512 instruction set architecture (ISA) for FP16 was added, supporting a wide range of general-purpose numeric operations for 16-bit half precision floating-point values (binary16 in IEEE Standard 754-2019 for Floating-Point Arithmetic, aka half precision or FP16), which complements the existing 32-bit and 64-bit floating-point instructions already available in the Intel Xeon processor-based products. This ISA also provides complex-valued native hardware support for half precision floating-point. See Figure 4-3.
+Although bytes, words, and doublewords are fundamental data types, some instructions support additional interpretations of these data types to allow operations to be performed on numeric data types (signed and unsigned integers, and floating-point numbers). Single precision (32-bit) floating-point and double precision (64-bit) floating-point data types are supported across all generations of Intel SSE extensions and Intel AVX extensions. The half precision (16-bit) floating-point data type was supported only with F16C extensions (VCVTPH2PS and VCVTPS2PH) beginning with the third generation of Intel® Core™ processors based on Ivy Bridge microarchitec-ture. Starting with the 4th generation Intel® Xeon® Scalable Processor Family, an Intel® AVX-512 instruction set architecture (ISA) for FP16 was added, supporting a wide range of general-purpose numeric operations for 16-bit half precision floating-point values (binary16 in IEEE Standard 754-2019 for Floating-Point Arithmetic, aka half precision or FP16), which complements the existing 32-bit and 64-bit floating-point instructions already available in the Intel Xeon processor-based products. This ISA also provides complex-valued native hardware support for half precision floating-point. See Figure 4-3.
 
 ![Figure 4-3.  Numeric Data Types](../res/Figure%204-3.%20%20Numeric%20Data%20Types.png)
 
-## Integers
+## 4.2.1 Integers
 
 The Intel 64 and IA-32 architectures define two types of integers: unsigned and signed. Unsigned integers are ordi-nary binary values ranging from 0 to the maximum positive number that can be encoded in the selected operand size. Signed integers are two’s complement binary values that can be used to represent both positive and negative integer values.
 Some integer instructions (such as the ADD, SUB, PADDB, and PSUBB instructions) operate on either unsigned or signed integer operands. Other integer instructions (such as IMUL, MUL, IDIV, DIV, FIADD, and FISUB) operate on only one integer type.
 The following sections describe the encodings and ranges of the two types of integers.
 
-### Unsigned Integers
+### 4.2.1.1 Unsigned Integers
 
 Unsigned integers are unsigned binary numbers contained in a byte, word, doubleword, and quadword.
 Their values range from 0 to 255 for an unsigned byte integer,
 from 0 to 65,535 for an unsigned word integer,
-from 0 to 2^32 - 1 for an unsigned doubleword integer,
-and from 0 to 2^64 - 1 for an unsigned quadword integer.
+from 0 to 2<sup>32</sup> - 1 for an unsigned doubleword integer,
+and from 0 to 2<sup>64</sup> - 1 for an unsigned quadword integer.
 Unsigned integers are sometimes referred to as ordinals.
 
-### Signed Integers
+### 4.2.1.2 Signed Integers
 
 Signed integers are signed binary numbers held in a byte, word, doubleword, or quadword. All operations on signed integers assume a two's complement representation. The sign bit is located in bit 7 in a byte integer, bit 15 in a word integer, bit 31 in a doubleword integer, and bit 63 in a quadword integer (see the signed integer encodings in Table 4-1).
 
@@ -67,7 +67,7 @@ Integer values range from -128 to +127 for a byte integer, from -32,768 to +32,7
 When storing integer values in memory, word integers are stored in 2 consecutive bytes; doubleword integers are stored in 4 consecutive bytes; and quadword integers are stored in 8 consecutive bytes.
 The integer indefinite is a special value that is sometimes returned by the x87 FPU when operating on integer values. For more information, see Section 8.2.1, “Indefinites.”
 
-## Floating-Point Data Types
+## 4.2.2 Floating-Point Data Types
 
 The IA-32 architecture defines and operates on four floating-point data types: half precision floating-point, single precision floating-point, double precision floating-point, and double-extended precision floating-point (see Figure 4-3). The data formats for these data types correspond directly to formats specified in the IEEE Standard 754 for Floating-Point Arithmetic. 
 The half precision (16-bit) floating-point data type was supported only with F16C extensions (VCVTPH2PS and VCVTPS2PH) beginning with the third generation of Intel Core processors based on Ivy Bridge microarchitecture. Starting with the 4th generation Intel Xeon Scalable Processor Family, an Intel AVX-512 instruction set architecture (ISA) for FP16 was added, supporting a wide range of general-purpose numeric operations for 16-bit half precision floating-point values (binary16 in the IEEE Standard 754-2019 for Floating-Point Arithmetic, aka half precision or FP16), which complements the existing 32-bit and 64-bit floating-point instructions already available in the Intel Xeon processor-based products.
@@ -88,15 +88,15 @@ Table 4-2 gives the length, precision, and approximate normalized range that can
         <td>Half Precision</td>
         <td>16</td>
         <td>11</td>
-        <td>2^(-14) to 2^16</td>
-        <td>6.10 * 10^(-5) to 6.55 * 10^4</td>
+        <td>2<sup>-14</sup> to 2<sup>16</sup></td>
+        <td>6.10 * 10^<sup>-5</sup> to 6.55 * 10<sup>4</sup></td>
     </tr>
     <tr>
         <td>Single Precision</td>
         <td>32</td>
         <td>24</td>
-        <td>2^(-126) to 2^128</td>
-        <td>1.18 * 10^(-38) to 3.40 * 10^38</td>
+        <td>2<sup>-126</sup> to 2<sup>128</sup></td>
+        <td>1.18 * 10<sup>-38</sup> to 3.40 * 10<sup>38</sup></td>
     </tr>
     <tr>
         <td>Double Precision</td>
@@ -109,16 +109,14 @@ Table 4-2 gives the length, precision, and approximate normalized range that can
        <td>Extended Precision</td>
        <td>80</td>
        <td>64</td>
-       <td>2^(-16382) to 2^16384</td>
-       <td>3.36 * 10^(-4932) to 1.19 * 10^4932</td>
+       <td>2<sup>-16382</sup> to 2<sup>16384</sup></td>
+       <td>3.36 * 10<sup>-4932</sup> to 1.19 * 10<sup>4932</sup></td>
     </tr>
 </table>
 
-
-
-NOTE
-
-Section 4.8, “Real Numbers and Floating-Point Formats,” gives an overview of the IEEE Standard 754 floating-point formats and defines the terms integer bit, QNaN, SNaN, and denormal value.
+> [!NOTE]
+>
+> Section 4.8, “Real Numbers and Floating-Point Formats,” gives an overview of the IEEE Standard 754 floating-point formats and defines the terms integer bit, QNaN, SNaN, and denormal value.
 
 Table 4-3 shows the floating-point encodings for zeros, denormalized finite numbers, normalized finite numbers, infinites, and NaNs for each of the three floating-point data types. It also gives the format for the QNaN floating-point indefinite value. (See Section 4.8.3.7, “QNaN Floating-Point Indefinite,” for a discussion of the use of the QNaN floating-point indefinite value.)
 For the half precision, single precision, and double precision formats, only the fraction part of the significand is encoded.
@@ -201,7 +199,7 @@ For the double extended precision format, the integer is contained in bit 63, an
                 <td>X</td>
                 <td>11..11</td>
                 <td>1</td>
-                <td>0X..XX^2</td>
+                <td>0X..XX<sup>2</sup></td>
             </tr>
             <tr>
                 <td>QNaN</td>
@@ -226,12 +224,13 @@ For the double extended precision format, the integer is contained in bit 63, an
             </tr>
     </table>
 
-NOTES:
-
-1. Integer bit is implied and not stored for half precision, single precision, and double precision formats.
-2. The fraction for SNaN encodings must be non-zero with the most-significant bit 0.
+> [!NOTE]
+>
+> 1. Integer bit is implied and not stored for half precision, single precision, and double precision formats.
+> 2. The fraction for SNaN encodings must be non-zero with the most-significant bit 0.
 
 The exponent of each floating-point data type is encoded in biased format; see Section 4.8.2.2, “Biased Exponent.” The biasing constant is 15 for the half precision format, 127 for the single precision format, 1023 for the double precision format, and 16,383 for the double extended precision format.
+
 When storing floating-point values in memory, half precision values are stored in 2 consecutive bytes in memory; single precision values are stored in 4 consecutive bytes in memory; double precision values are stored in 8 consec-utive bytes; and double extended precision values are stored in 10 consecutive bytes.
-The single precision and double precision floating-point data types are operated on by x87 FPU, and Intel 
-SSE/SSE2/SSE3/SSE4.1/AVX instructions. The double extended precision floating-point format is only operated on by the x87 FPU. See Section 11.6.8, “Compatibility of SIMD and x87 FPU Floating-Point Data Types,” for a discus-sion of the compatibility of single precision and double precision floating-point data types between the x87 FPU and Intel SSE/SSE2/SSE3 extensions.
+
+The single precision and double precision floating-point data types are operated on by x87 FPU, and Intel SSE/SSE2/SSE3/SSE4.1/AVX instructions. The double extended precision floating-point format is only operated on by the x87 FPU. See Section 11.6.8, “Compatibility of SIMD and x87 FPU Floating-Point Data Types,” for a discus-sion of the compatibility of single precision and double precision floating-point data types between the x87 FPU and Intel SSE/SSE2/SSE3 extensions.
