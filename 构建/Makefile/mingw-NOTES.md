@@ -1,5 +1,18 @@
 # NOTES
 
+## 路径分隔符
+
+在 Windows 下, 也可以使用 Linux 分隔符 `/`
+
+例如:
+
+```Makefile
+test:
+    `debug/main`
+```
+
+此命令可启动".\debug\main.exe", 而不需要使用 `\`
+
 ## MinGW-make 对 Unix 命令的兼容性
 
 > 故意不小心只支持了部分, 这样你才知道用的是 MinGW-make

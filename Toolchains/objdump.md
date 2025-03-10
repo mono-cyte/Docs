@@ -131,3 +131,10 @@ USAGE: `llvm-objdump.exe [options] <input object files>`
 | `--rpaths`                  | Print the runtime search paths for the Mach-O file (requires --macho)                                                     |
 | `--universal-headers`       | Print Mach-O universal headers (requires --macho)                                                                         |
 | `--weak-bind`               | Display mach-o weak binding info                                                                                          |
+
+
+示例:
+
+```shell
+llvm-objdump -d xxx.exe | llvm-cxxfilt > output.da
+```
