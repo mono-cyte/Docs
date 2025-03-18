@@ -13,6 +13,11 @@ test:
 
 此命令可启动`.\debug\main.exe`, 而不需要使用 `\`
 
+> [!NOTE]
+> 当启动同目录的程序时, 不可直接 `main`
+>
+> `./main` 或 `main.exe` 才能正确解析
+
 ## MinGW-make 对 Unix 命令的兼容性
 
 > 故意不小心只支持了部分, 这样你才知道用的是 MinGW-make
